@@ -41,6 +41,11 @@ public class Principal extends javax.swing.JFrame {
     public void agregar_pelicula(Pelicula pelicula){
         int tamanio = array_peliculas.length;
         Pelicula[] array_peliculas_2 = new Pelicula[tamanio+1];
+        for (int i = 0; i < tamanio; i++) {
+            array_peliculas_2[i] = array_peliculas[i];
+        }
+        array_peliculas_2[tamanio] = pelicula;
+        
     }
     
     public void eliminar_pelicula(){
