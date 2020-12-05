@@ -91,6 +91,35 @@ public class Codigos {
         }
     }
 
+    public int BusquedaBinario(int dato) {
+        int buscado = BusquedaBinariaAuxiliar(this.codigos, 0, this.codigos.length - 1, dato);
+        return buscado;
+    }
+
+    public int BusquedaBinariaAuxiliar(String[][] ArregloAuxiliar, int izq, int der, int dato) {
+        int cen = (izq + der) / 2;
+        if (izq + 1 != der) {
+            if (Integer.parseInt(ArregloAuxiliar[cen][1]) == dato) {
+                return cen;
+            } else {
+                if (Integer.parseInt(ArregloAuxiliar[cen][1]) > dato) {
+                    cen = BusquedaBinariaAuxiliar(ArregloAuxiliar, izq, cen-1, dato);
+                } else {
+                    cen = BusquedaBinariaAuxiliar(ArregloAuxiliar, cen+1, der, dato);
+                }
+                return cen;
+            }
+        } else {
+            if (Integer.parseInt(ArregloAuxiliar[izq][1]) == dato) {
+                return izq;
+            } else if (Integer.parseInt(ArregloAuxiliar[der][1]) == dato) {
+                return der;
+            } else {
+                return -1;
+            }
+        }
+    }
+
     public String[][] getCodigos() {
         return codigos;
     }
