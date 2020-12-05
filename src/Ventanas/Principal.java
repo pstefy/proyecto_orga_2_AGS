@@ -6,11 +6,11 @@
 package Ventanas;
 
 import Clases.Alquiler_Diario;
-import Clases.Codigo;
+import Clases.Codigos;
 import Clases.Eliminada;
 import Clases.Num_Socio_Alq;
 import Clases.Palabra;
-import Clases.Pelicula;
+import Clases.Peliculas;
 import Clases.Titulo;
 
 /**
@@ -23,24 +23,24 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     
-    static Pelicula[] array_peliculas;
-    static Codigo[] array_codigos;
+    static Peliculas[] array_peliculas;
+    static Codigos[] array_codigos;
     static Titulo[] array_titulos;
     static Eliminada[] array_eliminadas;
     static Palabra[] array_palabras;
     
     public Principal() {
         initComponents();
-        array_peliculas = new Pelicula[0]; //Inicializar
-        array_codigos = new Codigo[0];
+        array_peliculas = new Peliculas[0]; //Inicializar
+        array_codigos = new Codigos[0];
         array_titulos = new Titulo[0];
         array_eliminadas = new Eliminada[0];
         array_palabras = new Palabra[0];
     }
     
-    public void agregar_pelicula(Pelicula pelicula){
+    public void agregar_pelicula(Peliculas pelicula){
         int tamanio = array_peliculas.length;
-        Pelicula[] array_peliculas_2 = new Pelicula[tamanio+1];
+        Peliculas[] array_peliculas_2 = new Peliculas[tamanio+1];
     }
     
     public void eliminar_pelicula(){
