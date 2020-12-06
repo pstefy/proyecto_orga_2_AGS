@@ -113,7 +113,7 @@ public class Agregar_pelicula extends javax.swing.JFrame {
             alquiler.setText("");
         }else{
             peliculas.Añadir("", codigo.getText(), titulo.getText(), alquiler.getText());
-            codigos.CargarDesdePeliculas(peliculas);
+            //codigos.CargarDesdePeliculas(peliculas);
             JOptionPane.showMessageDialog(this, "La pelicula fue agregada con exito.");
             principal.setVisible(true);
             this.dispose();

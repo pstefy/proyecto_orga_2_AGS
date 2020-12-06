@@ -58,16 +58,19 @@ public class Principal extends javax.swing.JFrame {
                     String[] peliculas_socios_split = peliculas_socios_txt.split("\n");
                     boolean caso = true;
                     for (int i = 0; i < peliculas_socios_split.length; i++) {
-                        if (peliculas_socios_split[i].equals("Pelicula")) {
+                        if (peliculas_socios_split[i].isEmpty()) {
                             
-                        }else if(peliculas_socios_split[i].equals("Socios")){
-                            caso = false;
-                        }else if(peliculas_socios_split[i].contains(",")){
-                            if (caso) {
-                                String[] datos_pelicula = peliculas_socios_split[i].split(",");
-                                peliculas.Añadir_2(datos_pelicula[0], datos_pelicula[1], datos_pelicula[2], datos_pelicula[3], datos_pelicula[4], datos_pelicula[5]);
-                            }else{
-                                
+                        }else{
+                            if (peliculas_socios_split[i].equals("Pelicula")) {
+                            }else if(peliculas_socios_split[i].equals("Socios")){
+                                caso = false;
+                            }else if(peliculas_socios_split[i].contains(",")){
+                                if (caso) {
+                                    String[] datos_pelicula = peliculas_socios_split[i].split(",");
+                                    peliculas.Añadir_2(datos_pelicula[0], datos_pelicula[1], datos_pelicula[2], datos_pelicula[3], datos_pelicula[4], datos_pelicula[5]);
+                                }else{
+
+                                }
                             }
                         }
                     }
