@@ -1,6 +1,13 @@
 
 package Clases;
 
+import static Ventanas.Principal.peliculas;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 public class NewMain {
 
     public static void main(String[] args) {
@@ -19,6 +26,8 @@ public class NewMain {
         System.out.println(pelicula.Devolver(0, 5));
         System.out.println(pelicula.DatoPelicula(3));
         System.out.println(pelicula.DatosPeliculas());
+        
+        
     }
     
 }

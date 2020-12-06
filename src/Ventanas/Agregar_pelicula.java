@@ -14,8 +14,10 @@ public class Agregar_pelicula extends javax.swing.JFrame {
     /**
      * Creates new form Agregar_pelicula
      */
-    public Agregar_pelicula() {
+    public static Principal principal;
+    public Agregar_pelicula(Principal princ) {
         initComponents();
+        principal = princ;
     }
 
     /**
@@ -73,7 +75,7 @@ public class Agregar_pelicula extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Agregar_pelicula().setVisible(true);
+                new Agregar_pelicula(principal).setVisible(true);
             }
         });
     }
