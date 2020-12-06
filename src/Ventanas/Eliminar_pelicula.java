@@ -109,6 +109,7 @@ public class Eliminar_pelicula extends javax.swing.JFrame {
             int posicion = codigos.BusquedaBinario(Integer.parseInt(codigo.getText()));
             if (posicion > -1) {
                 peliculas.EliminacionLogica(posicion);
+                codigos.Vaciar();
                 codigos.CargarDesdePeliculas(peliculas);
                 JOptionPane.showMessageDialog(this, "Pelicula eliminada con exito.");
                 principal_2.setVisible(true);
