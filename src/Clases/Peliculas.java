@@ -22,6 +22,14 @@ public class Peliculas {
         ArregloAuxiliar[ArregloAuxiliar.length - 1] = data;
         this.peliculas = ArregloAuxiliar;
     }
+    
+    public void Añadir_2(String muerto, String codigo, String titulo, String alquiler, String dias, String disponibilidad) {
+        String[][] ArregloAuxiliar = this.InicializarArreglo();
+        ArregloAuxiliar = this.TransferirArreglo(ArregloAuxiliar);
+        String[] data = {muerto, codigo, titulo, alquiler, dias, disponibilidad};
+        ArregloAuxiliar[ArregloAuxiliar.length - 1] = data;
+        this.peliculas = ArregloAuxiliar;
+    }
 
     public String[][] InicializarArreglo() {
         if (this.peliculas == null) {

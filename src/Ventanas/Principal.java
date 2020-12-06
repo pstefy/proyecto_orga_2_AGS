@@ -32,6 +32,8 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         peliculas = new Peliculas();
         codigos = new Codigos();
+        this.leer_txt();
+        this.setLocationRelativeTo(null);
     }
     
     public void leer_txt(){
@@ -63,17 +65,20 @@ public class Principal extends javax.swing.JFrame {
                         }else if(peliculas_socios_split[i].contains(",")){
                             if (caso) {
                                 String[] datos_pelicula = peliculas_socios_split[i].split(",");
-                                peliculas.Añadir(path, line, path, line);
+                                peliculas.Añadir_2(datos_pelicula[0], datos_pelicula[1], datos_pelicula[2], datos_pelicula[3], datos_pelicula[4], datos_pelicula[5]);
                             }else{
                                 
                             }
                         }
                     }
+                    if (peliculas.getPeliculas().length != 0) {
+                        codigos.CargarDesdePeliculas(peliculas);
+                    }
                 }
                 br.close();
             }
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Error al leer.");
+            JOptionPane.showMessageDialog(this, "Error al leer.");
         }
     }
     
@@ -90,8 +95,9 @@ public class Principal extends javax.swing.JFrame {
                 pw.print("Peliculas\n");
                 pw.append(todas_las_peliculas);
                 pw.close();
+                JOptionPane.showMessageDialog(this, "Cambios guardados con exito.");
             } catch (Exception err) {
-                JOptionPane.showMessageDialog(null, "Error al guardar.");
+                JOptionPane.showMessageDialog(this, "Error al guardar.");
             }
     }
     
@@ -160,18 +166,33 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(devolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 170, 39));
 
         devolver2.setText("Compactar y reindexar");
+        devolver2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                devolver2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(devolver2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 170, 39));
 
         lista_peliculas1.setText("Ver lista de peliculas");
         jPanel1.add(lista_peliculas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 170, 39));
 
         agregar1.setText("Agregar pelicula");
+        agregar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregar1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(agregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 170, 39));
 
         agregar_socio.setText("Agregar socio");
         jPanel1.add(agregar_socio, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 170, 39));
 
         guardar.setText("Guardar cambios");
+        guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarActionPerformed(evt);
+            }
+        });
         jPanel1.add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 170, 39));
 
         alquilar1.setText("Alquilar pelicula");
@@ -188,20 +209,49 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-        // TODO add your handling code here:
+        Eliminar_pelicula ep = new Eliminar_pelicula(this);
+        ep.setVisible(true);
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
-        // TODO add your handling code here:
+        String opcion = JOptionPane.showInputDialog(this, "Desea consultar por codigo (1) o por palabras del titulo (2) de la pelicula?");
+        try {
+            int opcion_int = Integer.parseInt(opcion);
+            if (opcion_int == 1) {
+                
+            }else if(opcion_int == 2){
+                
+            }else{
+                JOptionPane.showMessageDialog(this, "Por favor ingrese 1 o 2 segun la consulta deseada.");
+            }
+        } catch (Exception err) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese 1 o 2 segun la consulta deseada.");
+        }
+        
     }//GEN-LAST:event_consultarActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        // TODO add your handling code here:
+        this.guardar_txt();
+        System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
 
     private void alquilar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alquilar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_alquilar1ActionPerformed
+
+    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
+        this.guardar_txt();
+    }//GEN-LAST:event_guardarActionPerformed
+
+    private void agregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar1ActionPerformed
+        Agregar_pelicula ap = new Agregar_pelicula(this);
+        ap.setVisible(true);
+    }//GEN-LAST:event_agregar1ActionPerformed
+
+    private void devolver2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolver2ActionPerformed
+        peliculas.CompactadorReindexador();
+        JOptionPane.showMessageDialog(this, "Peliculas eliminadas fisicamente con exito.");
+    }//GEN-LAST:event_devolver2ActionPerformed
 
     /**
      * @param args the command line arguments
