@@ -5,6 +5,10 @@
  */
 package Ventanas;
 
+import static Ventanas.Principal.peliculas;
+import static Ventanas.Principal.codigos;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Stefani
@@ -14,8 +18,13 @@ public class Agregar_pelicula extends javax.swing.JFrame {
     /**
      * Creates new form Agregar_pelicula
      */
-    public Agregar_pelicula() {
+    public static Principal principal;
+    public Agregar_pelicula(Principal princ) {
         initComponents();
+        principal = princ;
+        principal.setVisible(false);
+        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -27,21 +36,90 @@ public class Agregar_pelicula extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        codigo = new javax.swing.JTextField();
+        salir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        titulo = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        alquiler = new javax.swing.JTextField();
+        agregar = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("Codigo");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
+        jPanel1.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 220, -1));
+
+        salir.setText("X");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 40, -1));
+
+        jLabel2.setText("Titulo");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+
+        titulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tituloActionPerformed(evt);
+            }
+        });
+        jPanel1.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 220, -1));
+
+        jLabel3.setText("Alquiler diario");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+        jPanel1.add(alquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 220, -1));
+
+        agregar.setText("Agregar Pelicula");
+        agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 140, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        principal.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_salirActionPerformed
+
+    private void tituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tituloActionPerformed
+
+    private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
+        if(codigo.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debe ingresar el codigo de la pelicula.");
+            codigo.setText("");
+        }else if (titulo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe ingresar el titulo de la pelicula.");
+            titulo.setText("");
+        }else if(alquiler.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debe ingresar el alquiler de la pelicula.");
+            alquiler.setText("");
+        }else{
+            peliculas.Añadir("", codigo.getText(), titulo.getText(), alquiler.getText());
+            codigos.Vaciar();
+            codigos.CargarDesdePeliculas(peliculas);
+            JOptionPane.showMessageDialog(this, "La pelicula fue agregada con exito.");
+            principal.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_agregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -73,11 +151,20 @@ public class Agregar_pelicula extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Agregar_pelicula().setVisible(true);
+                new Agregar_pelicula(principal).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton agregar;
+    private javax.swing.JTextField alquiler;
+    private javax.swing.JTextField codigo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton salir;
+    private javax.swing.JTextField titulo;
     // End of variables declaration//GEN-END:variables
 }
