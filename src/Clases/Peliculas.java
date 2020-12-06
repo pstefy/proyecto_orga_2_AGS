@@ -55,7 +55,8 @@ public class Peliculas {
         if (this.peliculas[index][5].equals("Disponible")) {
             this.peliculas[index][4] = Integer.toString(dias);
             this.peliculas[index][5] = Integer.toString(socio);
-            alquilar = "Película alquilada correctamente";
+            int precio = dias*Integer.parseInt(this.peliculas[index][3]);
+            alquilar = "Película alquilada correctamente.\nPrecio total: " + precio + "$";
         } else{
             alquilar = "La película ya fue alquilada por otro socio";
         }
@@ -63,7 +64,7 @@ public class Peliculas {
     }
 
     public String Devolver(int index, int retraso) {
-        String devolver;
+        String devolver = "";
         if (this.peliculas[index][5].equals("Disponible")) {
             devolver = "La película no ha sido alquilada";
         }else{
@@ -71,6 +72,8 @@ public class Peliculas {
             retraso = 2 * Integer.parseInt(this.peliculas[index][3]) * retraso;
             devolver = "El costo de alquiler de la película es " + costo + "$\n"
                     + "El extra por retraso es " + retraso + "$";
+            this.peliculas[index][5] = "Disponible";
+            this.peliculas[index][4] = "0";
         }
         return devolver;
     }

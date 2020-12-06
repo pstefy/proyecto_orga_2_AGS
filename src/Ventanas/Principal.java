@@ -163,6 +163,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 170, 39));
 
         devolver.setText("Devolver pelicula");
+        devolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                devolverActionPerformed(evt);
+            }
+        });
         jPanel1.add(devolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 170, 39));
 
         devolver2.setText("Compactar y reindexar");
@@ -174,6 +179,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(devolver2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 170, 39));
 
         lista_peliculas1.setText("Ver lista de peliculas");
+        lista_peliculas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lista_peliculas1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(lista_peliculas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 170, 39));
 
         agregar1.setText("Agregar pelicula");
@@ -236,7 +246,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void alquilar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alquilar1ActionPerformed
-        // TODO add your handling code here:
+        Alquilar_pelicula alq = new Alquilar_pelicula(this);
+        alq.setVisible(true);
     }//GEN-LAST:event_alquilar1ActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
@@ -252,6 +263,16 @@ public class Principal extends javax.swing.JFrame {
         peliculas.CompactadorReindexador();
         JOptionPane.showMessageDialog(this, "Peliculas eliminadas fisicamente con exito.");
     }//GEN-LAST:event_devolver2ActionPerformed
+
+    private void lista_peliculas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lista_peliculas1ActionPerformed
+        Ver_peliculas vp = new Ver_peliculas(this);
+        vp.setVisible(true);
+    }//GEN-LAST:event_lista_peliculas1ActionPerformed
+
+    private void devolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolverActionPerformed
+        Devolver_pelicula dp = new Devolver_pelicula(this);
+        dp.setVisible(true);
+    }//GEN-LAST:event_devolverActionPerformed
 
     /**
      * @param args the command line arguments
