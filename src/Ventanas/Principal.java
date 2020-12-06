@@ -235,7 +235,8 @@ public class Principal extends javax.swing.JFrame {
         try {
             int opcion_int = Integer.parseInt(opcion);
             if (opcion_int == 1) {
-                
+                Consultar_1 cp = new Consultar_1(this);
+                cp.setVisible(true);
             }else if(opcion_int == 2){
                 
             }else{
