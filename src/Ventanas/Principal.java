@@ -87,7 +87,11 @@ public class Principal extends javax.swing.JFrame {
         String[][] todo = peliculas.getPeliculas();
         if (todo.length != 0) {
             for (int i = 0; i < todo.length; i++) {
-                todas_las_peliculas += todo[i][0] + "," + todo[i][1] + "," + todo[i][2] + "," + todo[i][3] + "," + todo[i][4] + "," + todo[i][5] + ",";
+                String eliminada = todo[i][0];
+                if (eliminada.isEmpty()) {
+                    eliminada = " ";
+                }
+                todas_las_peliculas += eliminada + "," + todo[i][1] + "," + todo[i][2] + "," + todo[i][3] + "," + todo[i][4] + "," + todo[i][5];
             }
         }
         try {
