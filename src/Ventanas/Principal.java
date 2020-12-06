@@ -91,7 +91,7 @@ public class Principal extends javax.swing.JFrame {
                 if (eliminada.isEmpty()) {
                     eliminada = " ";
                 }
-                todas_las_peliculas += eliminada + "," + todo[i][1] + "," + todo[i][2] + "," + todo[i][3] + "," + todo[i][4] + "," + todo[i][5];
+                todas_las_peliculas += eliminada + "," + todo[i][1] + "," + todo[i][2] + "," + todo[i][3] + "," + todo[i][4] + "," + todo[i][5] + "\n";
             }
         }
         try {
