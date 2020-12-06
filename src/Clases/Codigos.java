@@ -91,7 +91,7 @@ public class Codigos {
         }
     }
 
-    public int BusquedaBinario(int dato) {
+    public int BusquedaBinaria   (int dato) {
         int buscado = BusquedaBinariaAuxiliar(this.codigos, 0, this.codigos.length - 1, dato);
         return buscado;
     }
@@ -128,4 +128,12 @@ public class Codigos {
         this.codigos = codigos;
     }
 
+    public int getEliminados() {
+        return eliminados;
+    }
+
+    public void setEliminados(int eliminados) {
+        this.eliminados = eliminados;
+    }
+    
 }
