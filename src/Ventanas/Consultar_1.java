@@ -7,6 +7,7 @@ package Ventanas;
 
 import static Ventanas.Principal.peliculas;
 import static Ventanas.Principal.codigos;
+import static Ventanas.Principal.titulos;
 import javax.swing.JOptionPane;
 
 /**
@@ -103,15 +104,15 @@ public class Consultar_1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe ingresar el codigo de la pelicula.");
             codigo.setText("");
         }else{
-            int posicion = codigos.BusquedaBinario(Integer.parseInt(codigo.getText()));
+            int posicion = codigos.BusquedaBinaria(Integer.parseInt(codigo.getText()));
             if (posicion > -1) {
-                String estado = peliculas.getPeliculas()[posicion][5];
+                String estado = peliculas.getPeliculas()[Integer.parseInt(codigos.getCodigos()[posicion][2])][5];
                 if (estado.equals("Disponible")) {
-                    JOptionPane.showMessageDialog(this, "La pelicula no esta alquilada.");
+                    JOptionPane.showMessageDialog(this, peliculas.DatoPelicula(Integer.parseInt(codigos.getCodigos()[posicion][2])));
                     principal_3.setVisible(true);
                     this.dispose();
                 }else{
-                   JOptionPane.showMessageDialog(this, "La pelicula esta alquilada.");
+                   JOptionPane.showMessageDialog(this, peliculas.DatoPelicula(Integer.parseInt(codigos.getCodigos()[posicion][2])));
                    principal_3.setVisible(true);
                     this.dispose();
                 }

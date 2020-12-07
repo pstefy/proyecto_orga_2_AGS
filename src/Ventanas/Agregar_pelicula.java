@@ -7,6 +7,7 @@ package Ventanas;
 
 import static Ventanas.Principal.peliculas;
 import static Ventanas.Principal.codigos;
+import static Ventanas.Principal.titulos;
 import javax.swing.JOptionPane;
 
 /**
@@ -87,7 +88,7 @@ public class Agregar_pelicula extends javax.swing.JFrame {
         });
         jPanel1.add(agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 140, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 380, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -113,8 +114,8 @@ public class Agregar_pelicula extends javax.swing.JFrame {
             alquiler.setText("");
         }else{
             peliculas.Añadir("", codigo.getText(), titulo.getText(), alquiler.getText());
-            codigos.Vaciar();
-            codigos.CargarDesdePeliculas(peliculas);
+            codigos.Añadir("", codigo.getText(), Integer.toString(peliculas.getPeliculas().length-1));
+            titulos.Añadir("", titulo.getText());
             JOptionPane.showMessageDialog(this, "La pelicula fue agregada con exito.");
             principal.setVisible(true);
             this.dispose();
