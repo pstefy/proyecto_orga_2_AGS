@@ -98,7 +98,7 @@ public class Codigos {
 
     public int BusquedaBinariaAuxiliar(String[][] ArregloAuxiliar, int izq, int der, int dato) {
         int cen = (izq + der) / 2;
-        if (izq + 1 != der) {
+        if (izq + 1 != der && izq != der) {
             if (Integer.parseInt(ArregloAuxiliar[cen][1]) == dato) {
                 return cen;
             } else {
