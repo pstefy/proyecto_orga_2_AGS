@@ -19,7 +19,7 @@ public class Titulos {
         }
         this.eliminados = peliculas.getEliminados();
     }
-    
+
     public void Añadir(String muerto, String nombre) {
         String[][] ArregloAuxiliar = this.InicializarArreglo();
         String[] datos = {muerto, nombre};
@@ -41,7 +41,29 @@ public class Titulos {
             return ArregloAuxiliar;
         } else {
             int j = 0;
-            if (this.titulos[titulos.length - 1][1].compareTo(datos[1]) < 0) {
+            boolean mayor = true;
+            if (this.titulos[titulos.length - 1][1].length() > datos[1].length()) {
+                for (int i = 0; i < datos.length; i++) {
+                    if ((int) datos[1].toUpperCase().charAt(i) > (int) this.titulos[titulos.length - 1][1].charAt(i)) {
+                        mayor = true;
+                        break;
+                    } else if ((int) datos[1].toUpperCase().charAt(i) < (int) this.titulos[titulos.length - 1][1].charAt(i)) {
+                        mayor = false;
+                        break;
+                    }
+                }
+            } else {
+                for (int i = 0; i < this.titulos[titulos.length - 1][1].length(); i++) {
+                    if ((int) datos[1].toUpperCase().charAt(i) > (int) this.titulos[titulos.length - 1][1].charAt(i)) {
+                        mayor = true;
+                        break;
+                    } else if ((int) datos[1].toUpperCase().charAt(i) < (int) this.titulos[titulos.length - 1][1].charAt(i)) {
+                        mayor = false;
+                        break;
+                    }
+                }
+            }
+            if (mayor) {
                 for (int i = 0; i < this.titulos.length; i++) {
                     ArregloAuxiliar[i] = this.titulos[i];
                 }
@@ -49,7 +71,29 @@ public class Titulos {
             } else {
                 boolean insertado = false;
                 for (int i = 0; i < ArregloAuxiliar.length; i++) {
-                    if (datos[1].compareTo(this.titulos[titulos.length - 1][1]) < 0 && !insertado) {
+                    boolean interno = true;
+                    if (this.titulos[titulos.length - 1][1].length() > datos[1].length()) {
+                        for (int k = 0; k < datos.length; i++) {
+                            if ((int) datos[1].toUpperCase().charAt(k) > (int) this.titulos[titulos.length - 1][1].charAt(k)) {
+                                mayor = true;
+                                break;
+                            } else if ((int) datos[1].toUpperCase().charAt(k) < (int) this.titulos[titulos.length - 1][1].charAt(k)) {
+                                mayor = false;
+                                break;
+                            }
+                        }
+                    } else {
+                        for (int k = 0; k < this.titulos[titulos.length - 1][1].length(); i++) {
+                            if ((int) datos[1].toUpperCase().charAt(k) > (int) this.titulos[titulos.length - 1][1].charAt(k)) {
+                                mayor = true;
+                                break;
+                            } else if ((int) datos[1].toUpperCase().charAt(k) < (int) this.titulos[titulos.length - 1][1].charAt(k)) {
+                                mayor = false;
+                                break;
+                            }
+                        }
+                    }
+                    if (interno && !insertado) {
                         ArregloAuxiliar[i] = datos;
                         i++;
                         ArregloAuxiliar[i] = this.titulos[j];
