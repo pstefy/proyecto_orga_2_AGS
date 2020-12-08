@@ -77,6 +77,9 @@ public class Principal extends javax.swing.JFrame {
                                 if (caso) {
                                     String[] datos_pelicula = peliculas_socios_split[i].split(",");
                                     peliculas.Añadir_2(datos_pelicula[0], datos_pelicula[1], datos_pelicula[2], datos_pelicula[3], datos_pelicula[4], datos_pelicula[5]);
+                                    if (!datos_pelicula[0].isEmpty()) {
+                                        peliculas.setEliminados(peliculas.getEliminados()+1);
+                                    }
                                 }else if(!caso){
                                     String[] datos_socio = peliculas_socios_split[i].split(",");
                                     socios.Añadir_2(datos_socio[0], datos_socio[1], datos_socio[2]);
