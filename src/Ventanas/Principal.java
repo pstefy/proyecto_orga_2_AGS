@@ -8,6 +8,7 @@ package Ventanas;
 import Clases.Codigos;
 import Clases.Peliculas;
 import Clases.Titulos;
+import Clases.Palabras;
 import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 import java.io.BufferedReader;
@@ -29,12 +30,14 @@ public class Principal extends javax.swing.JFrame {
     public static Peliculas peliculas;
     public static Codigos codigos;
     public static Titulos titulos;
+    public static Palabras palabras;
     
     public Principal() {
         initComponents();
         peliculas = new Peliculas();
         codigos = new Codigos();
         titulos = new Titulos();
+        palabras = new Palabras();
         this.leer_txt();
         this.setLocationRelativeTo(null);
     }
@@ -80,6 +83,7 @@ public class Principal extends javax.swing.JFrame {
                     if (peliculas.getPeliculas().length != 0) {
                         codigos.CargarDesdePeliculas(peliculas);
                         titulos.CargarDesdePeliculas(peliculas);
+                        palabras.CargarDesdePeliculas(peliculas);
                     }
                 }
                 br.close();
@@ -275,6 +279,7 @@ public class Principal extends javax.swing.JFrame {
         peliculas.CompactadorReindexador();
         codigos.CompactadorReindexador();
         titulos.CompactadorReindexador();
+        palabras.CompactadorReindexador();
         JOptionPane.showMessageDialog(this, "Peliculas eliminadas fisicamente con exito.");
     }//GEN-LAST:event_devolver2ActionPerformed
 

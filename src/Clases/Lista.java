@@ -2,8 +2,8 @@ package Clases;
 
 public class Lista {
 
-    public Nodo first;
-    public Nodo last;
+    private Nodo first;
+    private Nodo last;
 
     public Lista() {
         this.first = null;
@@ -57,6 +57,22 @@ public class Lista {
             }
             aux = aux.getSiguiente();
         }
+    }
+
+    public Nodo getFirst() {
+        return first;
+    }
+
+    public void setFirst(Nodo first) {
+        this.first = first;
+    }
+
+    public Nodo getLast() {
+        return last;
+    }
+
+    public void setLast(Nodo last) {
+        this.last = last;
     }
     
 }

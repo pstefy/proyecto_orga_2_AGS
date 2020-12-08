@@ -13,6 +13,14 @@ public class Palabra {
         lista.Añadir(muerto, titulo, codigo);
     }
 
+    public String getEliminado() {
+        return eliminado;
+    }
+
+    public void setEliminado(String eliminado) {
+        this.eliminado = eliminado;
+    }
+
     public String getPalabra() {
         return palabra;
     }

@@ -8,6 +8,7 @@ package Ventanas;
 import static Ventanas.Principal.peliculas;
 import static Ventanas.Principal.codigos;
 import static Ventanas.Principal.titulos;
+import static Ventanas.Principal.palabras;
 import javax.swing.JOptionPane;
 
 /**
@@ -116,6 +117,7 @@ public class Agregar_pelicula extends javax.swing.JFrame {
             peliculas.Añadir("", codigo.getText(), titulo.getText(), alquiler.getText());
             codigos.Añadir("", codigo.getText(), Integer.toString(peliculas.getPeliculas().length-1));
             titulos.Añadir("", titulo.getText());
+            palabras.Añadir("", titulo.getText(), Integer.parseInt(codigo.getText()));
             JOptionPane.showMessageDialog(this, "La pelicula fue agregada con exito.");
             principal.setVisible(true);
             this.dispose();
