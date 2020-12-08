@@ -114,10 +114,10 @@ public class Agregar_pelicula extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe ingresar el alquiler de la pelicula.");
             alquiler.setText("");
         }else{
-            peliculas.Añadir("", codigo.getText(), titulo.getText(), alquiler.getText());
+            peliculas.Añadir("", codigo.getText(), titulo.getText().toUpperCase(), alquiler.getText());
             codigos.Añadir("", codigo.getText(), Integer.toString(peliculas.getPeliculas().length-1));
-            titulos.Añadir("", titulo.getText());
-            palabras.Añadir("", titulo.getText(), Integer.parseInt(codigo.getText()));
+            titulos.Añadir("", titulo.getText().toUpperCase());
+            palabras.Añadir("", titulo.getText().toUpperCase(), Integer.parseInt(codigo.getText()));
             JOptionPane.showMessageDialog(this, "La pelicula fue agregada con exito.");
             principal.setVisible(true);
             this.dispose();
