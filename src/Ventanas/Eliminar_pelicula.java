@@ -108,17 +108,21 @@ public class Eliminar_pelicula extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe ingresar el codigo de la pelicula.");
             codigo.setText("");
         }else{
-            int posicion = codigos.BusquedaBinaria(Integer.parseInt(codigo.getText()));
-            if (posicion > -1) {
-                peliculas.EliminacionLogica(Integer.parseInt(codigos.getCodigos()[posicion][2]));
-                codigos.EliminacionLogica(posicion);
-                titulos.EliminacionLogica(titulos.BusquedaBinaria(peliculas.getPeliculas()[Integer.parseInt(codigos.getCodigos()[posicion][2])][2]));
-                palabras.EliminacionLogica(peliculas.getPeliculas()[Integer.parseInt(codigos.getCodigos()[posicion][2])][2]);
-                JOptionPane.showMessageDialog(this, "Pelicula eliminada con exito.");
-                principal_2.setVisible(true);
-                this.dispose();
-            }else{
-                JOptionPane.showMessageDialog(this, "Debe ingresar un codigo existente.");
+            try {
+                int posicion = codigos.BusquedaBinaria(Integer.parseInt(codigo.getText()));
+                if (posicion > -1) {
+                    peliculas.EliminacionLogica(Integer.parseInt(codigos.getCodigos()[posicion][2]));
+                    codigos.EliminacionLogica(posicion);
+                    titulos.EliminacionLogica(titulos.BusquedaBinaria(peliculas.getPeliculas()[Integer.parseInt(codigos.getCodigos()[posicion][2])][2]));
+                    palabras.EliminacionLogica(peliculas.getPeliculas()[Integer.parseInt(codigos.getCodigos()[posicion][2])][2]);
+                    JOptionPane.showMessageDialog(this, "Pelicula eliminada con exito.");
+                    principal_2.setVisible(true);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(this, "Debe ingresar un codigo existente.");
+                }
+            } catch (Exception err) {
+                JOptionPane.showMessageDialog(this, "Por favor ingrese un codigo existente.");
             }
         }
     }//GEN-LAST:event_eliminarActionPerformed

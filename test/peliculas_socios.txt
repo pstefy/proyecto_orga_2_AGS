@@ -1,5 +1,6 @@
 Peliculas
- ,0001,END GAME,2,0,Disponible
+*,0001,END GAME,2,0,Disponible
  ,0002,THE END,3,0,Disponible
+ ,0003,THE FINAL END,4,0,Disponible
 Socios
  ,0001,Andres Rojas
