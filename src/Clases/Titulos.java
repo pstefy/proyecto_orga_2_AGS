@@ -140,7 +140,7 @@ public class Titulos {
 
     public int BusquedaBinariaAuxiliar(String[][] ArregloAuxiliar, int izq, int der, String dato) {
         int cen = (izq + der) / 2;
-        if (izq + 1 != der) {
+        if (izq + 1 != der && izq != der) {
             if (ArregloAuxiliar[cen][1].toUpperCase().equals(dato.toUpperCase())) {
                 return cen;
             } else {

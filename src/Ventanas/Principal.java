@@ -84,7 +84,7 @@ public class Principal extends javax.swing.JFrame {
                             }
                         }
                     }
-                    if (peliculas.getPeliculas().length != 0) {
+                    if (peliculas.getPeliculas().length != 0 || peliculas.getPeliculas() != null) {
                         codigos.CargarDesdePeliculas(peliculas);
                         titulos.CargarDesdePeliculas(peliculas);
                         palabras.CargarDesdePeliculas(peliculas);
@@ -312,7 +312,10 @@ public class Principal extends javax.swing.JFrame {
     private void devolver2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolver2ActionPerformed
         peliculas.CompactadorReindexador();
         codigos.CompactadorReindexador();
-        titulos.CompactadorReindexador();
+        titulos.Vaciar();
+        titulos.CargarDesdePeliculas(peliculas);
+        palabras.Vaciar();
+        palabras.CargarDesdePeliculas(peliculas);
         palabras.CompactadorReindexador();
         socios.CompactadorReindexador();
         JOptionPane.showMessageDialog(this, "Peliculas y socios eliminados fisicamente con exito.");
