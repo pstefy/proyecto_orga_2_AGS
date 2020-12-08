@@ -111,7 +111,7 @@ public class Alquilar_pelicula extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe ingresar el numero de dias que desea alquilar la pelicula.");
             dias.setText("");
         }else{
-            int posicion = codigos.BusquedaBinario(Integer.parseInt(codigo.getText()));
+            int posicion = codigos.BusquedaBinaria(Integer.parseInt(codigo.getText()));
             if (posicion > -1) {
                 try {
                    int nro_dias = Integer.parseInt(dias.getText());

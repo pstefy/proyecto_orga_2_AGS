@@ -7,6 +7,8 @@ package Ventanas;
 
 import static Ventanas.Principal.peliculas;
 import static Ventanas.Principal.codigos;
+import static Ventanas.Principal.titulos;
+import static Ventanas.Principal.palabras;
 import javax.swing.JOptionPane;
 
 /**
@@ -106,11 +108,12 @@ public class Eliminar_pelicula extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe ingresar el codigo de la pelicula.");
             codigo.setText("");
         }else{
-            int posicion = codigos.BusquedaBinario(Integer.parseInt(codigo.getText()));
+            int posicion = codigos.BusquedaBinaria(Integer.parseInt(codigo.getText()));
             if (posicion > -1) {
-                peliculas.EliminacionLogica(posicion);
-                codigos.Vaciar();
-                codigos.CargarDesdePeliculas(peliculas);
+                peliculas.EliminacionLogica(Integer.parseInt(codigos.getCodigos()[posicion][2]));
+                codigos.EliminacionLogica(posicion);
+                titulos.EliminacionLogica(titulos.BusquedaBinaria(peliculas.getPeliculas()[Integer.parseInt(codigos.getCodigos()[posicion][2])][2]));
+                palabras.EliminacionLogica(peliculas.getPeliculas()[Integer.parseInt(codigos.getCodigos()[posicion][2])][2]);
                 JOptionPane.showMessageDialog(this, "Pelicula eliminada con exito.");
                 principal_2.setVisible(true);
                 this.dispose();

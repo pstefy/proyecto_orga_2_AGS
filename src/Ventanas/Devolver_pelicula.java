@@ -99,7 +99,7 @@ public class Devolver_pelicula extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe ingresar el codigo de la pelicula.");
             codigo.setText("");
         }else{
-            int posicion = codigos.BusquedaBinario(Integer.parseInt(codigo.getText()));
+            int posicion = codigos.BusquedaBinaria(Integer.parseInt(codigo.getText()));
             if (posicion > -1) {
                 try {
                     if (!retraso.getText().isEmpty()) {
