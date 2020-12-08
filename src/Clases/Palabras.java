@@ -1,7 +1,21 @@
 package Clases;
 
-public class Titulos {
-
+public class Palabras {
+    
+    private Palabra[] palabras;
+    private int eliminados;
+    
+    public Palabras(){
+        this.palabras = null;
+        this.eliminados = 0;
+    }
+    
+    public void Vaciar(){
+        this.palabras = null;
+        this.eliminados = 0;
+    }
+    
+    /*
     private String[][] titulos;
     private int eliminados;
 
@@ -200,4 +214,7 @@ public class Titulos {
         this.eliminados = eliminados;
     }
 
+}
+    */
+    
 }
