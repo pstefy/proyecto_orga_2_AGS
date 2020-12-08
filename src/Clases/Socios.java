@@ -19,6 +19,13 @@ public class Socios {
         ArregloAuxiliar = this.TransferirArregloOrdenado(ArregloAuxiliar, datos);
         this.socios = ArregloAuxiliar;
     }
+    
+    public void Añadir_2(String muerto, String numero, String nombre) {
+        String[][] ArregloAuxiliar = this.InicializarArreglo();
+        String[] datos = {muerto,numero, nombre};
+        ArregloAuxiliar = this.TransferirArregloOrdenado(ArregloAuxiliar, datos);
+        this.socios = ArregloAuxiliar;
+    }
 
     public String[][] InicializarArreglo() {
         if (this.socios == null) {

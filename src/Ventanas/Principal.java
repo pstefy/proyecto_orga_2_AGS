@@ -9,6 +9,7 @@ import Clases.Codigos;
 import Clases.Peliculas;
 import Clases.Titulos;
 import Clases.Palabras;
+import Clases.Socios;
 import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 import java.io.BufferedReader;
@@ -31,6 +32,7 @@ public class Principal extends javax.swing.JFrame {
     public static Codigos codigos;
     public static Titulos titulos;
     public static Palabras palabras;
+    public static Socios socios;
     
     public Principal() {
         initComponents();
@@ -38,6 +40,7 @@ public class Principal extends javax.swing.JFrame {
         codigos = new Codigos();
         titulos = new Titulos();
         palabras = new Palabras();
+        socios = new Socios();
         this.leer_txt();
         this.setLocationRelativeTo(null);
     }
@@ -74,8 +77,9 @@ public class Principal extends javax.swing.JFrame {
                                 if (caso) {
                                     String[] datos_pelicula = peliculas_socios_split[i].split(",");
                                     peliculas.Añadir_2(datos_pelicula[0], datos_pelicula[1], datos_pelicula[2], datos_pelicula[3], datos_pelicula[4], datos_pelicula[5]);
-                                }else{
-
+                                }else if(!caso){
+                                    String[] datos_socio = peliculas_socios_split[i].split(",");
+                                    socios.Añadir_2(datos_socio[0], datos_socio[1], datos_socio[2]);
                                 }
                             }
                         }
@@ -95,7 +99,9 @@ public class Principal extends javax.swing.JFrame {
     
     public void guardar_txt(){
         String todas_las_peliculas = "";
+        String todos_los_socios = "";
         String[][] todo = peliculas.getPeliculas();
+        String[][] todo_2 = socios.getSocios();
         if (todo.length != 0) {
             for (int i = 0; i < todo.length; i++) {
                 String eliminada = todo[i][0];
@@ -105,10 +111,17 @@ public class Principal extends javax.swing.JFrame {
                 todas_las_peliculas += eliminada + "," + todo[i][1] + "," + todo[i][2] + "," + todo[i][3] + "," + todo[i][4] + "," + todo[i][5] + "\n";
             }
         }
+        if (todo_2.length != 0) {
+            for (int i = 0; i < todo_2.length; i++) {
+                todos_los_socios += todo_2[i][0] + "," + todo_2[i][1] + "," + todo_2[i][2] + "\n";
+            }
+        }
         try {
                 PrintWriter pw = new PrintWriter("test\\peliculas_socios.txt");
                 pw.print("Peliculas\n");
                 pw.append(todas_las_peliculas);
+                pw.print("Socios\n");
+                pw.append(todos_los_socios);
                 pw.close();
                 JOptionPane.showMessageDialog(this, "Cambios guardados con exito.");
             } catch (Exception err) {

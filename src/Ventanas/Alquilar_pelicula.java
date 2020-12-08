@@ -7,6 +7,7 @@ package Ventanas;
 
 import static Ventanas.Principal.peliculas;
 import static Ventanas.Principal.codigos;
+import static Ventanas.Principal.socios;
 import javax.swing.JOptionPane;
 
 /**
@@ -117,9 +118,14 @@ public class Alquilar_pelicula extends javax.swing.JFrame {
                    int nro_dias = Integer.parseInt(dias.getText());
                    try {
                         int nro_socio_int = Integer.parseInt(nro_socio.getText());
-                        JOptionPane.showMessageDialog(this, peliculas.Alquilar(posicion, nro_dias, nro_socio_int));
-                        principal_4.setVisible(true);
-                        this.dispose();
+                        int buscado = socios.BusquedaBinaria(nro_socio_int);
+                        if (buscado > -1) {
+                            JOptionPane.showMessageDialog(this, peliculas.Alquilar(posicion, nro_dias, nro_socio_int));
+                            principal_4.setVisible(true);
+                            this.dispose();
+                       }else{
+                            JOptionPane.showMessageDialog(this, "Por favor ingrese un numero de socio existente.");
+                        }
                      } catch (Exception err) {
                          JOptionPane.showMessageDialog(this, "Por favor ingrese su numero de socio.");
                      }
