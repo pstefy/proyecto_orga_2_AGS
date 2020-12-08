@@ -312,11 +312,9 @@ public class Principal extends javax.swing.JFrame {
     private void devolver2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolver2ActionPerformed
         peliculas.CompactadorReindexador();
         codigos.CompactadorReindexador();
-        titulos.Vaciar();
-        titulos.CargarDesdePeliculas(peliculas);
+        titulos.CompactadorReindexador();
         palabras.Vaciar();
         palabras.CargarDesdePeliculas(peliculas);
-        palabras.CompactadorReindexador();
         socios.CompactadorReindexador();
         JOptionPane.showMessageDialog(this, "Peliculas y socios eliminados fisicamente con exito.");
     }//GEN-LAST:event_devolver2ActionPerformed
