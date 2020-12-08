@@ -26,6 +26,27 @@ public class Socios {
         ArregloAuxiliar = this.TransferirArregloOrdenado(ArregloAuxiliar, datos);
         this.socios = ArregloAuxiliar;
     }
+    
+    public String DatosSocios() {
+        String data = "";
+        int j = 1;
+        for (int i = 0; i < this.socios.length; i++) {
+            if (!this.socios[i][0].equals("*")) {
+                if (data.equals("")) {
+                    data = "-> Socio " + j + " <-\n"
+                            + "Nro de socio: " + this.socios[i][1] + "\n"
+                            + "Nombre: " + this.socios[i][2] + "\n";
+                    j++;
+                } else {
+                    data += "\n-> Socio " + j + " <-\n"
+                            + "Nro de socio: " + this.socios[i][1] + "\n"
+                            + "Nombre: " + this.socios[i][2] + "\n";
+                    j++;
+                }
+            }
+        }
+        return data;
+    }
 
     public String[][] InicializarArreglo() {
         if (this.socios == null) {

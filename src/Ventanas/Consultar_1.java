@@ -86,7 +86,7 @@ public class Consultar_1 extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 160, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 330));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

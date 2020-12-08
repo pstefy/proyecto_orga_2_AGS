@@ -113,7 +113,12 @@ public class Principal extends javax.swing.JFrame {
         }
         if (todo_2.length != 0) {
             for (int i = 0; i < todo_2.length; i++) {
-                todos_los_socios += todo_2[i][0] + "," + todo_2[i][1] + "," + todo_2[i][2] + "\n";
+                if (todo_2[i][0].equals("") || todo_2[i][0].equals(" ")) {
+                    todos_los_socios += " " + "," + todo_2[i][1] + "," + todo_2[i][2] + "\n";
+                }else{
+                   todos_los_socios += todo_2[i][0] + "," + todo_2[i][1] + "," + todo_2[i][2] + "\n"; 
+                }
+                
             }
         }
         try {
@@ -161,6 +166,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lista_socios.setText("Ver lista de socios");
+        lista_socios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lista_sociosActionPerformed(evt);
+            }
+        });
         jPanel1.add(lista_socios, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, 170, 39));
 
         salir.setText("X");
@@ -172,6 +182,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(621, 10, -1, 20));
 
         eliminar_socio.setText("Eliminar socio");
+        eliminar_socio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminar_socioActionPerformed(evt);
+            }
+        });
         jPanel1.add(eliminar_socio, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 170, 39));
 
         eliminar.setText("Eliminar pelicula");
@@ -223,6 +238,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(agregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 170, 39));
 
         agregar_socio.setText("Agregar socio");
+        agregar_socio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregar_socioActionPerformed(evt);
+            }
+        });
         jPanel1.add(agregar_socio, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 170, 39));
 
         guardar.setText("Guardar cambios");
@@ -259,7 +279,8 @@ public class Principal extends javax.swing.JFrame {
                 Consultar_1 cp = new Consultar_1(this);
                 cp.setVisible(true);
             }else if(opcion_int == 2){
-                
+                Consultar_2 cp2 = new Consultar_2(this);
+                cp2.setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(this, "Por favor ingrese 1 o 2 segun la consulta deseada.");
             }
@@ -293,7 +314,8 @@ public class Principal extends javax.swing.JFrame {
         codigos.CompactadorReindexador();
         titulos.CompactadorReindexador();
         palabras.CompactadorReindexador();
-        JOptionPane.showMessageDialog(this, "Peliculas eliminadas fisicamente con exito.");
+        socios.CompactadorReindexador();
+        JOptionPane.showMessageDialog(this, "Peliculas y socios eliminados fisicamente con exito.");
     }//GEN-LAST:event_devolver2ActionPerformed
 
     private void lista_peliculas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lista_peliculas1ActionPerformed
@@ -305,6 +327,21 @@ public class Principal extends javax.swing.JFrame {
         Devolver_pelicula dp = new Devolver_pelicula(this);
         dp.setVisible(true);
     }//GEN-LAST:event_devolverActionPerformed
+
+    private void agregar_socioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_socioActionPerformed
+        Agregar_socio as = new Agregar_socio(this);
+        as.setVisible(true);
+    }//GEN-LAST:event_agregar_socioActionPerformed
+
+    private void eliminar_socioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_socioActionPerformed
+        Eliminar_socio es = new Eliminar_socio(this);
+        es.setVisible(true);
+    }//GEN-LAST:event_eliminar_socioActionPerformed
+
+    private void lista_sociosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lista_sociosActionPerformed
+        Ver_socios vs = new Ver_socios(this);
+        vs.setVisible(true);
+    }//GEN-LAST:event_lista_sociosActionPerformed
 
     /**
      * @param args the command line arguments

@@ -21,8 +21,10 @@ public class Ver_peliculas extends javax.swing.JFrame {
         initComponents();
         principal_5 = princ;
         principal_5.setVisible(false);
-        todas_las_peliculas.setText(peliculas.DatosPeliculas());
         this.setLocationRelativeTo(null);
+        if (peliculas.getPeliculas() != null) {
+           todas_las_peliculas.setText(peliculas.DatosPeliculas()); 
+        }
     }
 
     /**

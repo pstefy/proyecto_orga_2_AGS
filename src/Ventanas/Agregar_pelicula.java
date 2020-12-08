@@ -65,7 +65,7 @@ public class Agregar_pelicula extends javax.swing.JFrame {
                 salirActionPerformed(evt);
             }
         });
-        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 40, -1));
+        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 40, -1));
 
         jLabel2.setText("Titulo");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
@@ -89,7 +89,7 @@ public class Agregar_pelicula extends javax.swing.JFrame {
         });
         jPanel1.add(agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 140, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 380, 300));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
